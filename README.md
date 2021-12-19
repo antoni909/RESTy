@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment)
+
 # RESTy
 
 goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner
