@@ -1,28 +1,57 @@
-import React from 'react';
-
+import React, {useState} from 'react'
+import axios from 'axios'
 import './form.scss';
 
-class Form extends React.Component {
+const Form = (props) => {
+  // const baseURL = 'https://pokeapi.co/api/v2/pokemon?limit=5'
+  const [url, setURL] = useState('')
+  const [method, setMethod] = useState('')
 
-  handleSubmit = e => {
+  const handleURL = e =>{
     e.preventDefault();
-    const formData = {
-      method:'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    this.props.handleApiCall(formData);
+    const inputURL = e.target.value
+    setURL(inputURL)
   }
 
-  render() {
+  const handleMethod = e => {
+    e.preventDefault();
+    const methodSelected = e.target.id
+    setMethod(methodSelected)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let data = null
+    if(url === ''){
+      data = await axios
+        .get('https://pokeapi.co/api/v2/pokemon?limit=15')
+        .then(res => res)
+    }else{
+      data = await axios  
+        .get(url)
+        .then(res => res)
+    }
+
+    props.handleApiCall({ data: data, method: method, url: url });
+
+  }
+
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label >
-            <span>URL: </span>
-            <input name='url' type='text' />
-            <button type="submit">GO!</button>
+            <span> URL: </span>
+            <input
+              onChange={handleURL} 
+              name='url' 
+              type='text' />
+            <button 
+              type="submit"> GO </button>
           </label>
-          <label className="methods">
+          <label 
+            onClick={handleMethod}
+            className="methods">
             <span id="get">GET</span>
             <span id="post">POST</span>
             <span id="put">PUT</span>
@@ -31,7 +60,6 @@ class Form extends React.Component {
         </form>
       </>
     );
-  }
 }
 
 export default Form;
