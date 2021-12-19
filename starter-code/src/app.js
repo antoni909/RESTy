@@ -16,14 +16,13 @@ class App extends React.Component {
   }
 
   callApi = (requestParams) => {
-    console.log(requestParams)
+
     this.setState(
         {
           data: requestParams.data.data, 
           requestParams: requestParams
         }
       );
-
     }
 
   render() {

@@ -19,20 +19,26 @@ const Form = (props) => {
     setMethod(methodSelected)
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const axiosGet = async () => {
 
     let data = null
+  
     if(url === ''){
-      data = await axios
-        .get('https://pokeapi.co/api/v2/pokemon?limit=15')
+      return data = await axios
+        .get('https://pokeapi.co/api/v2/pokemon?limit=5')
         .then(res => res)
     }else{
-      data = await axios  
+      return data = await axios  
         .get(url)
         .then(res => res)
     }
 
+  }
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = await axiosGet()
     props.handleApiCall({ data: data, method: method, url: url });
 
   }

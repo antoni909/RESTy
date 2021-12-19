@@ -1,0 +1,14 @@
+$backgroundColor: #000000;
+$radius: 40%;
+
+results {
+  display: inline-block;
+  margin: auto;
+  width: 200px;
+  background-color: ($backgroundColor);
+
+  label {
+    display: flex;
+    margin: 1rem 0;
+  }
+}
