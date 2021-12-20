@@ -6,7 +6,7 @@ goal is to setup the basic scaffolding of the application, with intent being to 
 
 ## UML
 
-![RESTy UML](./src/assets/phaseIUML.jpg)
+![RESTy UML](./src/assets/uml.jpg)
 
 ## Requirements
 
