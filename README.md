@@ -1,4 +1,4 @@
-![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=up&url=https%3A%2F%2Fantoni909.github.io%2FRESTy%2F) [![pages-build-deployment](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/antoni909/RESTy/actions/workflows/pages/pages-build-deployment) ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=up&url=https%3A%2F%2Fantoni909.github.io%2FRESTy%2F) 
 
 <h1 align="center">Welcome to RESTy 👋</h1>
 
