@@ -3,41 +3,30 @@ import axios from 'axios'
 import './form.scss';
 
 const Form = (props) => {
-  // const baseURL = 'https://pokeapi.co/api/v2/pokemon?limit=5'
+
   const [url, setURL] = useState('')
   const [method, setMethod] = useState('')
-
-  const handleURL = e =>{
-    e.preventDefault();
-    const inputURL = e.target.value
-    setURL(inputURL)
-  }
-
-  const handleMethod = e => {
-    e.preventDefault();
-    const methodSelected = e.target.id
-    setMethod(methodSelected)
-  }
 
   const axiosGet = async () => {
 
     let data = null
   
-    if(url === ''){
+    if( url === '' ){
       return data = await axios
         .get('https://pokeapi.co/api/v2/pokemon?limit=5')
-        .then(res => res)
+        .then( res => res)
+        .catch(e => console.log('error: ', e.message))
     }else{
       return data = await axios  
         .get(url)
         .then(res => res)
+        .catch( e => console.log('error: ', e.message))
     }
 
   }
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const data = await axiosGet()
     props.handleApiCall({ data: data, method: method, url: url });
 
@@ -47,16 +36,16 @@ const Form = (props) => {
       <>
         <form onSubmit={handleSubmit}>
           <label >
-            <span> URL: </span>
+            <span> URL </span>
             <input
-              onChange={handleURL} 
+              onChange={ (e) =>  setURL(e.target.value) }
               name='url' 
               type='text' />
             <button 
               type="submit"> GO </button>
           </label>
           <label 
-            onClick={handleMethod}
+            onClick={ (e) => setMethod(e.target.id) } 
             className="methods">
             <span id="get">GET</span>
             <span id="post">POST</span>

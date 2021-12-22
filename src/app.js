@@ -1,50 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 
-class App extends React.Component {
+const App = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
+  const [data , setData ] = useState(null)
+  const [requestParams , setReqParams ] = useState({})
+
+  const callApi = (reqParams) => { 
+
+    setData(reqParams.data.data)
+    setReqParams(reqParams)
+
   }
 
-  callApi = (requestParams) => {
-
-    this.setState(
-        {
-          data: requestParams.data.data, 
-          requestParams: requestParams
-        }
-      );
-    }
-
-  render() {
-    return (
+  return (
       <>
         <Header />
           <div>
-            Request Method: {this.state.requestParams.method}
+            Request Method: {requestParams['method']}
           </div>
           <div>
-            URL: {this.state.requestParams.url}
+            URL: {requestParams['url']}
           </div>
         <Form 
-          handleApiCall={this.callApi} 
+          handleApiCall={callApi} 
         />
         <Results 
-          data={this.state.data} 
+          data={data} 
         />
         <Footer />
       </>
-    );
-  }
+  );
+
 }
 
 export default App;

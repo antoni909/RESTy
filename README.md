@@ -10,46 +10,47 @@ The goal is to setup the basic scaffolding of the application, with intent being
 
 ## UML
 
-![RESTy UML](./src/assets/uml.jpg)
+Phase 1 and 2: ![RESTy UML](./src/assets/uml.jpg)
 
-## Requirements
+### Requirements
 
 Phase 1: [Begin work on the RESTy API testing application](./src/assets/requirements#Phase1)
+Phase 2: [Retrieving User Input and Managing State](./src/assets/requirements#Phase2)
 
 #### Home : 🏠 [GitHub](https://github.com/antoni909/RESTy)
 
 #### Deployment: ✨ [GitHub Pages](https://antoni909.github.io/RESTy/)
 
-## Install
+#### Install
 
 ```sh
 npm install
 ```
 
-## Usage
+#### Usage
 
 ```sh
 npm run start
 ```
 
-## Run tests
+#### Run tests
 
 ```sh
 npm run test
 ```
 
-## Author
+#### Author
 
 * Website: https://github.com/antoni909
 * Github: [@antoni909](https://github.com/antoni909)
 
-## 🤝 Contributing
+#### 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
 Feel free to check [issues page](https://github.com/antoni909/RESTy/issues)
 
-## Show your support
+#### Show your support
 
 Give a ⭐️ if this project helped you!
 
