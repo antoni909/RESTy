@@ -3,27 +3,15 @@ import axios from 'axios'
 import './form.scss';
 
 const Form = (props) => {
-  // const baseURL = 'https://pokeapi.co/api/v2/pokemon?limit=5'
+
   const [url, setURL] = useState('')
   const [method, setMethod] = useState('')
-
-  // const handleURL = e =>{
-  //   e.preventDefault();
-  //   const inputURL = e.target.value
-  //   setURL(inputURL)
-  // }
-
-  // const handleMethod = e => {
-  //   e.preventDefault();
-  //   const methodSelected = e.target.id
-  //   setMethod(methodSelected)
-  // }
 
   const axiosGet = async () => {
 
     let data = null
   
-    if(url === ''){
+    if( url === '' ){
       return data = await axios
         .get('https://pokeapi.co/api/v2/pokemon?limit=5')
         .then(res => res)
@@ -47,9 +35,8 @@ const Form = (props) => {
       <>
         <form onSubmit={handleSubmit}>
           <label >
-            <span> URL: </span>
+            <span> URL </span>
             <input
-              // onChange={handleURL} 
               onChange={ () => (e) => setURL(e.target.value) }
               name='url' 
               type='text' />
@@ -57,7 +44,6 @@ const Form = (props) => {
               type="submit"> GO </button>
           </label>
           <label 
-            // onClick={handleMethod}
             onClick={ () => (e) => setMethod(e.target.id) }
             className="methods">
             <span id="get">GET</span>
