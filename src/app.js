@@ -19,7 +19,7 @@ const App = () => {
 
   return (
       <>
-        <Header />
+        <Header title="RESTy"/>
           <div>
             Request Method: {requestParams['method']}
           </div>
