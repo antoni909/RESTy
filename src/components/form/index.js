@@ -7,17 +7,17 @@ const Form = (props) => {
   const [url, setURL] = useState('')
   const [method, setMethod] = useState('')
 
-  const handleURL = e =>{
-    e.preventDefault();
-    const inputURL = e.target.value
-    setURL(inputURL)
-  }
+  // const handleURL = e =>{
+  //   e.preventDefault();
+  //   const inputURL = e.target.value
+  //   setURL(inputURL)
+  // }
 
-  const handleMethod = e => {
-    e.preventDefault();
-    const methodSelected = e.target.id
-    setMethod(methodSelected)
-  }
+  // const handleMethod = e => {
+  //   e.preventDefault();
+  //   const methodSelected = e.target.id
+  //   setMethod(methodSelected)
+  // }
 
   const axiosGet = async () => {
 
@@ -49,14 +49,16 @@ const Form = (props) => {
           <label >
             <span> URL: </span>
             <input
-              onChange={handleURL} 
+              // onChange={handleURL} 
+              onChange={ () => (e) => setURL(e.target.value) }
               name='url' 
               type='text' />
             <button 
               type="submit"> GO </button>
           </label>
           <label 
-            onClick={handleMethod}
+            // onClick={handleMethod}
+            onClick={ () => (e) => setMethod(e.target.id) }
             className="methods">
             <span id="get">GET</span>
             <span id="post">POST</span>
