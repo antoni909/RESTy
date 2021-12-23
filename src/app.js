@@ -15,7 +15,6 @@ const App = () => {
   const callApi = (reqParams) => { 
     setData(reqParams.data)
     setReqParams(reqParams)
-    console.log('App isLoading: ',reqParams&&reqParams.isLoading)
   }
 
   return (

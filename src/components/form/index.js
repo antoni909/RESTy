@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 import axios from 'axios'
 import './form.scss';
 
@@ -34,7 +34,7 @@ const Form = ({handleApiCall}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await axiosGet()
-    console.log('form isLoading: ',data&&isLoading)
+    // console.log('form isLoading: ',data&&isLoading)
     handleApiCall({ 
       data: data, 
       method: method, 
@@ -47,7 +47,7 @@ const Form = ({handleApiCall}) => {
     return (
       <Card style={{ width: "30rem" }}>
         <Card.Body>
-          <form onSubmit={handleSubmit}>
+          <form testid="formsubmit" onSubmit={handleSubmit}>
             <label>
               <span> URL </span>
               <input
