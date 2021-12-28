@@ -12,9 +12,15 @@ const App = () => {
 
   const [data , setData ] = useState(null)
   const [requestParams , setReqParams ] = useState({})
-  const callApi = (reqParams) => { 
-    setData(reqParams.data)
-    setReqParams(reqParams)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const callApi = async (reqParams) => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setData(reqParams.data)
+      setReqParams(reqParams)
+      setIsLoading(false) 
+    }, 2000);
   }
 
   return (
@@ -36,13 +42,14 @@ const App = () => {
           </Col>
           <Col md="auto">
             <Results
-              isLoading={requestParams.isLoading} 
+              isLoading={isLoading} 
               data={data} 
             />
           </Col>
         </Row>
 
         <Footer />
+
       </Container>
   );
 
