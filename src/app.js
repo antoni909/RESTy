@@ -20,37 +20,43 @@ const App = () => {
       setData(reqParams.data)
       setReqParams(reqParams)
       setIsLoading(false) 
-    }, 2000);
+    }, 1000);
   }
-
   return (
-      <Container fluid>
+    <div>
+        <Container fluid>
 
-        <Row className="justify-content-md-center">
-          <Header 
-            title="RESTy"
-            url={requestParams['url']}
-            method={requestParams['method']}
-          />
-        </Row>
-
-        <Row className="justify-content-md-center">
-          <Col md="auto">
-            <Form 
-              handleApiCall={callApi} 
+          <Row className="justify-content-md-center">
+            <Header 
+              title="RESTy"
+              url={requestParams['url']}
+              method={requestParams['method']}
             />
-          </Col>
-          <Col md="auto">
-            <Results
-              isLoading={isLoading} 
-              data={data} 
-            />
-          </Col>
-        </Row>
+          </Row>
+          <Row className="justify-content-md-center">
+            <Col md="auto">
+              <Form 
+                handleApiCall={callApi} 
+              />
+            </Col>
+          </Row>
+          <Row className="justify-content-md-center">
+            {
+              data
+              ?<Col md="auto">
+              <Results
+                isLoading={isLoading} 
+                data={data} 
+              />
+            </Col>
+              :null
+            }
+          </Row>
 
+        </Container>
         <Footer />
+      </div>
 
-      </Container>
   );
 
 }
