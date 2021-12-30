@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card'
 
 const Header = ({title, method, url}) => {
-
   return(
     <>
       <header>
@@ -14,16 +13,20 @@ const Header = ({title, method, url}) => {
         >by: antoni909
         </h2>
       </header>
-      <Card style={{ width: "30rem"}}>
-        <Card.Body>
-          <Card.Text>
-            Method: {(method)}
-          </Card.Text>
-          <Card.Text>
-            URL: {(url)}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      {
+        method && url
+        ?<Card style={{ width: "30rem"}}>
+          <Card.Body>
+            <Card.Text>
+              Method: {(method)}
+            </Card.Text>
+            <Card.Text>
+              URL: {(url)}
+            </Card.Text>
+          </Card.Body>
+         </Card>
+        :null
+      }
     </>
   )
 

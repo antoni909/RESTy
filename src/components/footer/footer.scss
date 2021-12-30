@@ -1,14 +1,11 @@
-$backgroundColor: #67cf9d;
-$radius: 40%;
+$backgroundColor: #000000;
 
-footer {
-  display: inline-block;
-  margin: auto;
-  width: 200px;
-  background-color: ($backgroundColor);
-
-  label {
-    display: flex;
-    margin: 1rem 0;
-  }
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
