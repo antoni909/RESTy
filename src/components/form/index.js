@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card'
-// import Spinner from 'react-bootstrap/Spinner'
 import axios from 'axios'
 import './form.scss';
 
@@ -8,23 +7,6 @@ const Form = ({handleApiCall}) => {
 
   const [url, setURL] = useState('')
   const [method, setMethod] = useState('')
-
-  // const fetchData = async () => {
-  //   fetch(
-  //     url, 
-  //     {method: method, 
-  //       headers: 
-  //         {'Content-type': 'application/json; charset=UTF-8'}
-  //     })
-  //     .then(res =>{
-  //       const arr = res.headers.entries()
-  //       const headers = Object.fromEntries(arr)
-  //       setHeaders(headers)
-  //       return res.json()
-  //     })
-  //     .then(results => setResults(results))
-  //     ,(error) => setError(error)
-  // }
 
   const fetchAPI = async () => {
     let response = null
@@ -86,7 +68,8 @@ const Form = ({handleApiCall}) => {
                 onChange={ (e) =>  setURL(e.target.value) }
                 placeholder="enter url here ..."
                 name='url' 
-                type='text' 
+                type='text'
+                required 
               />
               <button 
                 type="submit"> GO </button>
