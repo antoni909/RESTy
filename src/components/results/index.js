@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card'
 
-const Results = ({data, isLoading}) => {
-  console.log('**',isLoading)
+const Results = ({response, isLoading}) => {
   return(
     <div>
       {
@@ -12,13 +11,13 @@ const Results = ({data, isLoading}) => {
             </Card.Text>
           </Card>
           :<Card body style={ {width: "50rem"} }>{
-              data
+              response
                 ?<div>
                   <pre data-testid="json-headers">
-                    Headers: {data ? JSON.stringify(data.headers, undefined, 2) : null}
+                    Headers: {response ? JSON.stringify(response.headers, undefined, 2) : null}
                   </pre>
                   <pre data-testid="json-res-body">
-                    Response: {data ? JSON.stringify(data.data, undefined, 2) : null}
+                    Response: {response ? JSON.stringify(response.data, undefined, 2) : null}
                   </pre>
                   </div>
                 : null

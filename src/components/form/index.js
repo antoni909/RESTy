@@ -9,10 +9,11 @@ const Form = ({handleApiCall}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleApiCall({ 
-      method: method, 
-      url: url
-    });
+      const payload = { 
+        method: method, 
+        url: url
+      }
+    handleApiCall(payload);
     e.target.reset()
   }
     return (
