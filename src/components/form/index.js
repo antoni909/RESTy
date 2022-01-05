@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card'
-import axios from 'axios'
 import './form.scss';
 
 const Form = ({handleApiCall}) => {
@@ -8,54 +7,13 @@ const Form = ({handleApiCall}) => {
   const [url, setURL] = useState('')
   const [method, setMethod] = useState('')
 
-  const fetchAPI = async () => {
-    let response = null
-    if( url && (method === 'GET') ){
-      return response = await axios({
-          method: method, 
-          url: url,
-        })  
-          .then(res => res)
-          .catch( e => console.log('error: ', e.message))
-    }else if(url && (method === 'POST')){
-      return response = await axios({
-        method: method, 
-        url: 'https://jsonplaceholder.typicode.com/posts',
-        data: {title:'fake title', body:'fake body', userId: 2}
-      })  
-        .then(res => res)
-        .catch( e => console.log('error: ', e.message))
-    }else if(url && (method === 'PUT')){
-      return response = await axios({
-        method: method, 
-        url: 'https://jsonplaceholder.typicode.com/posts/1',
-        data: {
-          id: 1,
-          title: 'foo',
-          body: 'bar',
-          userId: 1,
-        }
-      })  
-        .then(res => res)
-        .catch( e => console.log('error: ', e.message))
-    }else if(url && (method === 'DELETE')){
-      return response = await axios({
-        method: method, 
-        url: 'https://jsonplaceholder.typicode.com/posts/1'
-      })  
-        .then( res => res )
-        .catch( e => console.log('error: ', e.message))
-    }else{ return response }
-  }
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await fetchAPI()
-    handleApiCall({ 
-      data: data, 
-      method: method, 
-      url: url
-    });
+      const payload = { 
+        method: method, 
+        url: url
+      }
+    handleApiCall(payload);
     e.target.reset()
   }
     return (
