@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import axios from 'axios'
+// import fetchAPI from '../src/fetch'
 import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -12,8 +13,11 @@ import Col from 'react-bootstrap/Col'
 const iState = {
   response: null,
   requestParams: {},
-  isLoading: false
+  isLoading: false,
+  searchTarget:{},
+  history: []
 }
+
 const fetchAPI = async (url,method) => {
   let response = null
   if( url && (method === 'GET') ){
@@ -53,23 +57,36 @@ const fetchAPI = async (url,method) => {
       .catch( e => console.log('error: ', e.message))
   }else{ return response }
 }
+
 const reducer = (state = iState,{type,payload}) => {
+  console.log({type})
   switch(type){
     case 'TOGGLE_isLoading': return {...state, ...payload}
     case 'NEW_requestParams': return {...state, requestParams:{...payload}}
-    case 'FETCH_SUCCESS': return {...state, ...payload }
+    case 'FETCH_SUCCESS': return {...state, ...payload}
+    case 'UPDATE_history': return{...state, history : [...state.history,{...payload}]}
+    case 'SEARCH_history:': return{
+      ...state,
+      searchTarget: state.history.find(item => item.url === payload)
+    }
     default: return state
   }
 }
 
 const App = () => {
+
   const [state, dispatch] = useReducer(reducer, iState)
+
   const callAPI = async (reqParams) => { 
-    dispatch({type:'TOGGLE_isLoading',payload: {isLoading: true} })
+
+    dispatch({type:'TOGGLE_isLoading',payload: {isLoading: true}})
+    dispatch({type:'UPDATE_history', payload: {...reqParams}})
+
     setTimeout(() => {
       dispatch({type:'NEW_requestParams', payload: {...reqParams} })
       dispatch({type:'TOGGLE_isLoading',payload: {isLoading: false} })
     }, 1000);
+
   }
   
   useEffect( async () => {
@@ -105,7 +122,8 @@ const App = () => {
               ?<Col md="auto">
               <Results
                 isLoading={state.isLoading} 
-                response={state.response} 
+                response={state.response}
+                history={state.history} 
               />
             </Col>
               :null
