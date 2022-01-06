@@ -1,6 +1,8 @@
+import History from '../history/index'
 import Card from 'react-bootstrap/Card'
 
-const Results = ({response, isLoading}) => {
+const Results = ({history, response, isLoading}) => {
+
   return(
     <div>
       {
@@ -13,6 +15,8 @@ const Results = ({response, isLoading}) => {
           :<Card body style={ {width: "50rem"} }>{
               response
                 ?<div>
+                  <History history={history}/>
+                    Your JSON :
                   <pre data-testid="json-headers">
                     Headers: {response ? JSON.stringify(response.headers, undefined, 2) : null}
                   </pre>

@@ -16,6 +16,8 @@ Phase 1 and 2: ![RESTy UML](./src/assets/uml.jpg)
 
 Phase 1: [Begin work on the RESTy API testing application](./src/assets/requirements#Phase1)
 Phase 2: [Retrieving User Input and Managing State](./src/assets/requirements#Phase2)
+Phase 3: [wip](./src/assets/requirements#Phase3)
+Phase 4: [Advanced State with Reducers](./src/assets/requirements#Phase4)
 
 #### Home : 🏠 [GitHub](https://github.com/antoni909/RESTy)
 
